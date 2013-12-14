@@ -22,7 +22,7 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  String text = "abcdefghijklmnopqr";
+  String text = "abcdefghijklmnopqrstuv";
   for (int index = 0; index < text.length(); index++) {
     switch (text[index]) {
     case 'a':
