@@ -85,8 +85,11 @@ void loop() {
     case 't':
       t();
       break;
-    case'u':
+    case 'u':
       u();
+      break;
+    case 'v':
+      v();
       break;
 
 
@@ -255,7 +258,11 @@ void u(){
   da();
 }
 
-
-
-
+void v() {
+  Serial.println("v...-");
+  dit();
+  dit();
+  dit();
+  da();
+}
 
