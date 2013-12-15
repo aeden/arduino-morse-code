@@ -7,7 +7,9 @@
 
 // Pin 13 has an LED connected on most Arduino boards.
 // give it a name:
-int led = 13;
+int redLed = 13;
+int greenLed = 12;
+int blueLed = 11;
 int ditDelay = 150;
 int daDelay = 500;
 int letterDelay = 400;
@@ -17,12 +19,14 @@ int loopDelay = 1000;
 void setup() {
   Serial.begin(9600);  
   // initialize the digital pin as an output.
-  pinMode(led, OUTPUT);     
+  pinMode(redLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
+  pinMode(blueLed, OUTPUT); 
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
-  String text = "abcdefghijklmnopqrstuv";
+  String text = "abcdefghijklmnopqrstuvwxyz";
   for (int index = 0; index < text.length(); index++) {
     switch (text[index]) {
     case 'a':
@@ -91,27 +95,43 @@ void loop() {
     case 'v':
       v();
       break;
+    case 'x':
+      x ();
+      break;
+    case 'y':
+      y ();
+      break;
+    case 'z':
+      z ();
+      break;
+
 
 
     default:
       break; 
     }
+    
     delay(letterDelay);
+    digitalWrite(blueLed, HIGH);
+    delay(letterDelay);
+    digitalWrite(blueLed, LOW);
+    
+  
   }
   delay(loopDelay);               // wait for a second
 }
 
 void dit() {
-  digitalWrite(led, HIGH);
+  digitalWrite(redLed, HIGH);
   delay(ditDelay);
-  digitalWrite(led, LOW);
+  digitalWrite(redLed, LOW);
   delay(ditDelay);
 }
 
 void da() {
-  digitalWrite(led, HIGH);
+  digitalWrite(greenLed, HIGH);
   delay(daDelay);
-  digitalWrite(led, LOW);
+  digitalWrite(greenLed, LOW);
   delay(daDelay);
 }
 
@@ -265,4 +285,40 @@ void v() {
   dit();
   da();
 }
+
+void w() {
+  Serial.println("w.--");
+  dit();
+  da();
+  da();
+}
+
+void x() {
+  Serial.println("x-..-");
+  da();
+  dit();
+  dit();
+  da();
+}
+
+void y(){
+  Serial.println("y-.--");
+  da();
+  dit();
+  da();
+  da();
+}
+
+void z(){
+  Serial.println("z--..");
+  da();
+  da();
+  dit();
+  dit();
+}
+
+
+
+
+
 
